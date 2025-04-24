@@ -1,13 +1,20 @@
 from retrieval import get_top_k_chunks_from_pdf, get_top_k_chunks_from_pdf_with_similarity
 from prompt_utils import query_ollama, format_prompt
 
-pdf_path = "/Users/jyotbuch/Desktop/DocuSense-AI/backend/data/Offer Letter.pdf"
-question = "What is the location of the internship?"
+#Filter all warnings
+import warnings
+import logging
+logging.disable(logging.WARNING)
+warnings.filterwarnings("ignore")
 
-# top_chunks = get_top_k_chunks_from_pdf(pdf_path, question)
-top_chunks = get_top_k_chunks_from_pdf_with_similarity(pdf_path, question, k=1)
+
+pdf_path = "/Users/jyotbuch/Desktop/DocuSense-AI/backend/data/Data_Scientist.pdf"
+question = "What are some key experiences/projects that highlight the candidates exposure to Computer Vision"
+
+top_chunks = get_top_k_chunks_from_pdf(pdf_path, question)
+# top_chunks = get_top_k_chunks_from_pdf_with_similarity(pdf_path, question, k=2)
 prompt = format_prompt(top_chunks, question)
-print(prompt)
+print("Prompt:\n", prompt)
 answer = query_ollama(prompt)
 
 print("\nAnswer:\n", answer)

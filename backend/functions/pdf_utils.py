@@ -22,6 +22,9 @@ def extract_text_from_pdf(pdf_path):
                 text = re.sub(r"\t+", " ", text)
                 # Condense multiple spaces (including any new spaces created) to a single space
                 text = re.sub(r"\s+", " ", text)   
+            
+            print("Extracted Text:")
+            print(text)
             return text
     except Exception as e:
         raise RuntimeError(f"Failed to extract text from PDF: {e}")

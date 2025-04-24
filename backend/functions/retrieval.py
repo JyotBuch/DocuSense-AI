@@ -71,4 +71,8 @@ def get_top_k_chunks_from_pdf_with_similarity(pdf_path, user_query, k=1):
     top_k_indices = np.argsort(similarities)[-k:]
     top_chunks = [chunks[int(i)] for i in top_k_indices]
 
+    print("Top-k chunks based on cosine similarity:")
+    for i, chunk in enumerate(top_chunks):
+        print(f"Chunk {i+1}: {chunk}")
+
     return top_chunks
