@@ -8,8 +8,8 @@ logging.disable(logging.WARNING)
 warnings.filterwarnings("ignore")
 
 
-pdf_path = "/Users/jyotbuch/Desktop/DocuSense-AI/backend/data/Data_Scientist.pdf"
-question = "What are some key experiences/projects that highlight the candidates exposure to Computer Vision"
+pdf_path = "/Users/jyotbuch/Desktop/DocuSense-AI/backend/data/Offer Letter.pdf"
+question = "What is the monthly salary?"
 
 top_chunks = get_top_k_chunks_from_pdf(pdf_path, question)
 # top_chunks = get_top_k_chunks_from_pdf_with_similarity(pdf_path, question, k=2)

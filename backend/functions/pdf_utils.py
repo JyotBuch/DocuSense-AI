@@ -86,13 +86,3 @@ def chunk_pdf_to_text(pdf_path, chunk_size=1000):
     tokens = tokenize_text(text)
     chunks = chunk_tokens(tokens, chunk_size)
     return [detokenize_text(chunk) for chunk in chunks]
-
-# def __main__():
-#     # Example usage
-#     pdf_path = "/Users/jyotbuch/Desktop/DocuSense-AI/backend/data/Offer Letter.pdf"
-#     try:
-#         text = extract_text_from_pdf(pdf_path)
-#         print("Extracted Text:")
-#         print(text)
-#     except RuntimeError as e:
-#         print(e)
