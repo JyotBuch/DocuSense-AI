@@ -42,7 +42,7 @@ def upload():
     # Generate thumbnail (first page)
     doc = fitz.open(save_path)
     page = doc.load_page(0)
-    pix = page.get_pixmap(matrix=fitz.Matrix(0.2, 0.2))  # scale down
+    pix = page.get_pixmap(matrix=fitz.Matrix(0.2, 0.2))
     thumb_path = os.path.join(THUMB_FOLDER, f"{filename}.png")
     pix.save(thumb_path)
     doc.close()

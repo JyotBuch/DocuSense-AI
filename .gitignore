@@ -1,7 +1,11 @@
+# Git ignore file for a Python project
+
+# Ignoring virtual environment directories
 \docusense
 
+# Ignoring data files
 \data
 
+#Ignoring cache files
 \doc_memory
-
 \uploads
