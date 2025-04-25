@@ -22,9 +22,6 @@ def extract_text_from_pdf(pdf_path):
                 text = re.sub(r"\t+", " ", text)
                 # Condense multiple spaces (including any new spaces created) to a single space
                 text = re.sub(r"\s+", " ", text)   
-            
-            print("Extracted Text:")
-            print(text)
             return text
     except Exception as e:
         raise RuntimeError(f"Failed to extract text from PDF: {e}")
@@ -56,7 +53,7 @@ def detokenize_text(tokens):
     encoding = tiktoken.get_encoding("cl100k_base")
     return encoding.decode(tokens)
 
-def chunk_tokens(tokens, chunk_size=500, overlap=0.2):
+def chunk_tokens(tokens, chunk_size=300, overlap=0.2):
     """
     Splits the tokenized input into chunks of specified size with overlap.
 
@@ -71,7 +68,7 @@ def chunk_tokens(tokens, chunk_size=500, overlap=0.2):
     step = int(chunk_size * (1 - overlap))
     return [tokens[i:i + chunk_size] for i in range(0, len(tokens), step) if i + chunk_size <= len(tokens)]
 
-def chunk_pdf_to_text(pdf_path, chunk_size=1000):
+def chunk_pdf_to_text(pdf_path, chunk_size=500):
     """
     Extracts text from a PDF and splits it into chunks of specified size.
 

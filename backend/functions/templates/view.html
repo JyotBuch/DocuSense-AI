@@ -1,0 +1,61 @@
+<!-- templates/view.html (Vertical split: PDF left 80%, Q&A right 20% with question above) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ selected }} - DocuSense.AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body, html { height: 100vh; margin: 0; padding: 0; }
+    .container-flex { display: flex; height: 100vh; overflow: hidden; }
+    .pdf-panel { flex: 0 0 80%; border-right: 1px solid #ddd; }
+    .pdf-panel iframe { width: 100%; height: 100%; border: none; }
+    .qa-panel { flex: 0 0 20%; display: flex; flex-direction: column; }
+    .qa-panel .ask-form { flex: 0 0 auto; padding: 0.5rem; background: #fff; border-bottom: 1px solid #ddd; }
+    .qa-panel .messages { flex: 1 1 auto; overflow-y: auto; padding: 1rem; background: #f8f9fa; }
+    .message { margin-bottom: 1rem; }
+    .message.user { text-align: left; }
+    .message.ai { text-align: left; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">← Back</a>
+      <span class="navbar-text text-white">{{ selected }}</span>
+    </div>
+  </nav>
+
+  <div class="container-flex">
+    <!-- PDF Viewer -->
+    <div class="pdf-panel">
+      <iframe src="{{ file_url }}"></iframe>
+    </div>
+
+    <!-- Q&A Side Panel -->
+    <div class="qa-panel">
+      <!-- Question Input -->
+      <div class="ask-form">
+        <form action="/ask" method="post">
+          <input type="hidden" name="doc_id" value="{{ selected }}">
+          <div class="input-group">
+            <input type="text" name="question" class="form-control form-control-sm" placeholder="Enter your question..." value="{{ question or '' }}">
+            <button type="submit" class="btn btn-sm btn-primary">Send</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Answer Messages -->
+      <div class="messages">
+        {% if answer %}
+          <div class="message user"><strong>You:</strong> {{ question }}</div>
+          <div class="message ai"><strong>AI:</strong> {{ answer }}</div>
+        {% else %}
+          <p class="text-muted">Answer will appear here.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

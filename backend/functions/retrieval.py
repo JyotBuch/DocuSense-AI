@@ -3,7 +3,7 @@ from embeddings import create_embeddings
 import faiss
 import numpy as np
 
-def get_top_k_chunks_from_pdf(pdf_path, user_query, k=1):
+def get_top_k_chunks_from_pdf(pdf_path, user_query, k=2):
     # 1. Extract text from PDF and chunk it
     chunks = chunk_pdf_to_text(pdf_path)
 
