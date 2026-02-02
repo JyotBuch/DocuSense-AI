@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DocuSense AI</title>
+  <meta name="description" content="DocuSense AI — local PDF Q&A with retrieval-augmented generation." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #0b0f14; color: #e6edf3; }
+    .hero { background: linear-gradient(135deg, #0b0f14 0%, #111827 60%, #1f2937 100%); }
+    .brand-pill { background: #ef4444; color: #fff; padding: 0.35rem 0.75rem; border-radius: 999px; font-weight: 600; letter-spacing: 0.2px; }
+    .card-dark { background: #111827; border: 1px solid #1f2937; }
+    .muted { color: #9ca3af; }
+    .section-title { letter-spacing: 0.3px; }
+    .btn-cta { background: #ef4444; border: none; }
+    .btn-cta:hover { background: #dc2626; }
+    .img-frame { border: 1px solid #1f2937; border-radius: 12px; overflow: hidden; }
+    footer { color: #9ca3af; }
+    a { color: #93c5fd; text-decoration: none; }
+    a:hover { color: #bfdbfe; }
+  </style>
+</head>
+<body>
+  <header class="hero py-5">
+    <div class="container">
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <span class="brand-pill">DocuSense AI</span>
+        <span class="muted">Local, private PDF Q&A</span>
+      </div>
+      <h1 class="display-5 fw-semibold">Turn PDFs into a searchable, conversational knowledge base.</h1>
+      <p class="lead muted mt-3">Flask + FAISS + MiniLM embeddings + Ollama (LLaMA 2). All local. No external APIs.</p>
+      <div class="d-flex gap-3 mt-4">
+        <a class="btn btn-cta text-white" href="https://github.com/JyotBuch/DocuSense-AI" target="_blank" rel="noreferrer">View on GitHub</a>
+        <a class="btn btn-outline-light" href="#screens">See Screens</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="py-5">
+    <div class="container">
+      <section class="mb-5">
+        <h2 class="section-title">Why DocuSense?</h2>
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="card card-dark h-100 p-3">
+              <h5 class="mb-2">Privacy-first</h5>
+              <p class="muted mb-0">Run everything locally with no API keys or external services.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-dark h-100 p-3">
+              <h5 class="mb-2">Fast retrieval</h5>
+              <p class="muted mb-0">FAISS vector search delivers sub-second results on large PDFs.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-dark h-100 p-3">
+              <h5 class="mb-2">Clean UI</h5>
+              <p class="muted mb-0">Two-panel interface: PDF viewer + chat Q&A.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="screens" class="mb-5">
+        <h2 class="section-title">Screens</h2>
+        <div class="row g-4 mt-1">
+          <div class="col-lg-6">
+            <div class="img-frame">
+              <img class="img-fluid" src="images/Landing%20Page.png" alt="Landing Page screenshot">
+            </div>
+            <p class="muted mt-2">Landing page with document thumbnails and upload.</p>
+          </div>
+          <div class="col-lg-6">
+            <div class="img-frame">
+              <img class="img-fluid" src="images/QnA%20Screen.png" alt="Q&A screen screenshot">
+            </div>
+            <p class="muted mt-2">Q&A panel with PDF viewer and answer stream.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Local Run</h2>
+        <div class="card card-dark p-3">
+          <p class="muted mb-2">If you want the full app experience, run it locally:</p>
+          <pre class="mb-0"><code>python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python backend/functions/app.py</code></pre>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="py-4">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <span>Created by Jyot Buch</span>
+      <span class="muted">DocuSense AI — GitHub Pages showcase</span>
+    </div>
+  </footer>
+</body>
+</html>

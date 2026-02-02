@@ -32,6 +32,16 @@ Once a PDF is loaded, ask questions in natural language; answers are generated b
 
 ---
 
+## 🌐 GitHub Pages (Static Showcase)
+
+The repo includes a static showcase site in `docs/` for GitHub Pages. After enabling Pages, your site will be live at:
+
+`https://jyotbuch.github.io/DocuSense-AI/`
+
+Source: `docs/`
+
+---
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: HTML (Flask templates), Bootstrap 5  
